@@ -1,0 +1,104 @@
+* {
+    text-decoration: none;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fafafa;
+    color: #363636;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+.wrapper {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+.menu{
+    position: fixed;
+    right: -50%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 250px;
+    height: calc(100vh - 0px);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+.menu-close {
+    width: 100%;
+    display: flex;
+    font-size: 36px;
+    align-items: flex-end;
+}
+.icon-right {
+    margin-right: 10px;
+}
+.menu.active {
+    right: 0;
+}
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+.menu-list a{
+    color: #363636;
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+.searchBar {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.search-input {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius:25px;
+    outline: none;
+    padding: 5px;
+}
+.ri-search-line {
+    font-size: 18px;
+    height: 100%;
+    width: max-content;
+    cursor: pointer;
+    font-weight: 400;
+}
+.logo {
+    flex: 2;
+    text-align: center;
+}
+.logo label {
+    font-size: 24px;
+    font-weight: 700;
+}
+.social-mobile {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+.social{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.toggle-icons{
+    font-size: 36px;
+}
+.ri-close-line{
+    display: none;
+}
