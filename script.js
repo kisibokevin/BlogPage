@@ -44,3 +44,27 @@ function slidePosts() {
     setInterval(slidePosts, 3000);
     
     // you may adjust the time interval as needed
+
+
+    const popular =document.querySelector('.mostPopular-post');
+
+    function popularSlides(){
+        //clone the popular post and append it to the end
+        const firstPopular = popular.firstElementChild.cloneNode(true);
+        popular.appendChild(firstPopular);
+
+        //animate the sliding effect
+        popular.style.transition = "transform 0.5s ease-in-out";
+
+        //calculate the distance the posts should slide
+        const popularPost = popular.querySelectorAll('.popularPost');
+        const popularWidth = popularPost[0].offsetWidth;
+        popular.style.transform = `translateX(-${popularWidth}px)`;
+
+        // remove first post after animation ends
+        setTimeout(() => {
+            popular.style.transition = "none";
+            popular.style.transform = `translateX(0)`;
+            popular.removeChild(popular.firstElementChild);
+        }, 1000);
+    }
