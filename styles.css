@@ -268,7 +268,8 @@ body {
     height: auto;
     /* Set the height of each slide */
     /* Additional styling for individual slide */
-    margin: 0 auto;
+    margin-left: 100px;
+    
 }
 .slideText-content{
     display: flex;

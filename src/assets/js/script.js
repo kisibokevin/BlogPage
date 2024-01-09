@@ -117,6 +117,7 @@ nextButton.addEventListener('click', () => {
 
 
 let slideIndex = 0;
+const slidesContainer = document.querySelector('.slides')
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
 const prevButton = document.querySelector('.prev');
@@ -130,13 +131,15 @@ function showSlides(index) {
         slideIndex = slides.length - 1;
     }
 
-    slides.forEach(slide => slide.style.display = 'none');
-    slides[slideIndex].style.display = 'block';
+    const firstSlide = slidesContainer.firstElementChild.cloneNode(true);
+    slidesContainer.appendChild(firstSlide);
+    //.forEach(slide => slide.style.display = 'none');
+    //slides[slideIndex].style.display = 'block';
 
     dots.forEach(dot => dot.classList.remove('active'));
     dots[slideIndex].classList.add('active');
 
-     const slideWidth = slides[0].clientWidth;
+    const slideWidth = slides[0].clientWidth;
     const slideOffset = -slideWidth * slideIndex;
     document.querySelector('.slides').style.transform = `translateX(${slideOffset}px)`;
 }
