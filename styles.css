@@ -338,6 +338,128 @@ body {
     cursor: pointer;
 }
 
+.categories-container{
+    display: flex;
+    padding: 10px 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+
+}
+
+.sports, .business{
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+
+}
+.sports-post {
+    display: flex;
+    gap: 20px;
+}
+.sports-post-content {
+    display: flex;
+    flex-direction: column;
+}
+.sport-content h3{
+    font-size: 12px;
+}
+.sport-content h1{
+    font-size: 14px;
+}
+.sports-post img{
+    max-width: 200px;
+    height: 96px;
+}
+.category-image img{
+    width:28px;
+    height: 28px;
+    border-radius: 50%;
+}
+.category-author {
+    display: flex;
+    gap: 10px;
+}
+.category-author-name h3{
+    font-size: 11px;
+}
+.category-author-name p {
+    font-size: 10px;
+}
+
+.sports h2, .business h2{
+    font-size: 16px;
+}
+.subscribe{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 10px 50px;
+    background-color: #fafafa;
+}
+.subscription-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 80px;
+}
+.subscription-container label{
+    font-weight: 600;
+}
+.input-container{
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    margin-top: 10px;
+}
+.sub-input {
+    flex: 2;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    outline: none;
+    padding-right: 40px;
+    padding-left: 10px;
+    height: 42px;
+}
+.sub-input:focus {
+    border-color: #616161;
+}
+.btn-sub{
+    flex: 1;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    outline: none;
+    padding-right: 40px;
+    padding-left: 20px;
+    height: 42px;
+    background-color: #e65100;
+    color: #fff;
+    cursor: pointer;
+}
+.footer-container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.foot-social {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.foot-i{
+    font-size:20px;
+    cursor:pointer;
+}
+.foot-text {
+    text-align: center;
+    font-size: 14px;
+}
+
+
+
 @media screen and (max-width: 767px) {
     /* styles for smartphones*/
     .menu{

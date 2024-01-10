@@ -45,78 +45,8 @@ function slidePosts() {
     
     // you may adjust the time interval as needed
 
-/** 
-    const popular =document.querySelector('.slides');
 
-
-    function popularSlides(){
-        //clone the popular post and append it to the end
-        const firstPopular = popular.firstElementChild.cloneNode(true);
-        popular.appendChild(firstPopular);
-
-        //animate the sliding effect
-        popular.style.transition = "transform 0.6s ease-in-out";
-
-        //calculate the distance the posts should slide
-        const popularPost = popular.querySelectorAll('.popularPost');
-        const popularWidth = popularPost[0].offsetWidth;
-        popular.style.transform = `translateX(-${popularWidth}px)`;
-
-        // remove first post after animation ends
-        setTimeout(() => {
-            popular.style.transition = "none";
-            popular.style.transform = `translateX(0)`;
-            popular.removeChild(popular.firstElementChild);
-        }, 1000);
-    }
-
-    setInterval(popularSlides, 3000);
-
-*/
-
-/**
- 
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
-
-function showSlides(index) {
-    if (index >= slides.length) {
-        slideIndex = 0;
-    } else if (index < 0) {
-        slideIndex = slides.length - 1;
-    }
-
-    slides.forEach(slide => slide.style.display = 'none');
-    slides[slideIndex].style.display = 'block';
-
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[slideIndex].classList.add('active');
-}
-
-showSlides(slideIndex);
-
-// Functionality for clicking pagination dots
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        showSlides(slideIndex = index);
-    });
-});
-
-// Functionality for previous and next buttons
-prevButton.addEventListener('click', () => {
-    showSlides(slideIndex -= 1);
-});
-
-nextButton.addEventListener('click', () => {
-    showSlides(slideIndex += 1);
-});
- */
-
-
-let slideIndex = 0;
+let slideIndex;
 const slidesContainer = document.querySelector('.slides')
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
