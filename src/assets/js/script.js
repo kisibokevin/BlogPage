@@ -46,7 +46,7 @@ function slidePosts() {
     // you may adjust the time interval as needed
 
 
-let slideIndex;
+let slideIndex = 0;
 const slidesContainer = document.querySelector('.slides')
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
