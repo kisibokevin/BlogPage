@@ -23,7 +23,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 250px;
-    height: calc(100vh - 0px);
+    height: calc(100vh);
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
     transition: 0.3s;
     z-index: 1200;
@@ -122,7 +122,6 @@ body {
 }
 .posts-container{
     display:flex;
-
 }
 .post{
     display: flex;
@@ -150,6 +149,7 @@ body {
 .post-content {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 .author-image img {
     border-radius: 50%;
@@ -176,13 +176,13 @@ body {
     margin-top: 50px;
 }
 .nav-dot{
-    height: 10px;
-    width: 10px;
+    height: 6px;
+    width: 6px;
     cursor: pointer;
     border-radius:50%;
     background-color: #757575;
 }
-.active-dot{
+.nav-dot.active{
     background-color: #e65100;
 }
 
@@ -197,28 +197,29 @@ body {
     margin-top: 30px;
     width: 100%;
 }
-.single-post-content{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-.single-post-text-content{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.singlePost{
+.singlePost {
     max-width: 339px;
     height: auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.single-post-image img{
+.single-post-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.single-post-image img {
     max-width: 339px;
     max-height: 218px;
     border-radius: 5px;
+}
+.single-post-text-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .single-post-title {
     font-size: 14px;
@@ -314,9 +315,7 @@ body {
     height: 48px;
     width: 48px;
 }
-.slide.active {
-    display: block;
-}
+
 
 .pagination-container{
     display: flex;
@@ -336,6 +335,7 @@ body {
     border-radius: 50%;
     width: 6px;
     height: 6px;
+    cursor: pointer;
 }
 .dot.active{
     background-color: #e65100;
@@ -397,6 +397,9 @@ body {
 .sports h2, .business h2{
     font-size: 16px;
 }
+.sport-date {
+    font-weight: 300;
+}
 .subscribe{
     display: flex;
     flex-direction: column;
@@ -423,7 +426,7 @@ body {
 .sub-input {
     flex: 2;
     border: 2px solid #e0e0e0;
-    border-radius: 5px;
+    border-radius: 8px;
     outline: none;
     padding-right: 40px;
     padding-left: 10px;
@@ -437,7 +440,7 @@ body {
     border: 2px solid #e0e0e0;
     border-radius: 25px;
     outline: none;
-    padding: 0 20px;
+    padding: 5px 20px;
     height: 42px;
     background-color: #e65100;
     color: #fff;
@@ -467,20 +470,32 @@ body {
 .foot-text {
     text-align: center;
     font-size: 14px;
+    margin-bottom: 20px;
 }
 
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 420px) {
     /* styles for smartphones*/
-    .menu{
-        z-index: 1200;
+    .wrapper{
+        max-width: 420px;
     }
+    
     .header{
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
         height: auto;
-        padding: 0 80px;
+        padding: 0 10px;
+    }
+    .menu {
+        z-index: 1200;
+        right: -100%;
+        width: 300px;
+        height: calc(100vh);
+    }
+    .icon-right{
+        display: block;
+        float: right;
     }
     .logo{
         order: 1;
@@ -489,7 +504,7 @@ body {
         text-align: center;
     }
     .logo label{
-        font-weight: 500;
+        font-weight: 700;
     }
     .social-mobile{
         order: 2;
@@ -505,19 +520,120 @@ body {
         margin-bottom: 20px;
     }
     .posts-container{
-        flex-direction: column;
-        gap: 0;
+        gap: 10px;
     }
-.post{
-    flex-direction: column;
-}
+    .trending-title h1 {
+        font-size: 28px;
+    }
+    .post-title{
+        font-size: 14px;
+    }
+    .post-content h1 {
+        font-size: 30px;
+    }
+    .post-content p{
+        font-size: 14px;
+    }
+    .post{
+        flex-direction: column;
+    }
     .trending-post{
         flex-direction: column;
-        padding: 0 80px;
+        padding: 0 10px;
     }
     .trending-post-content{
         gap: 20px;
     }
+    .postsCollection {
+        padding: 0 10px;
+    }
+    .postsCollection-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+    .singlePost {
+        max-width: 396px;
+        gap: 10px;
+    }
+    .single-post-image img {
+        max-width: 396px;
+        max-height: 254px;
+    }
+    .slideTitle{
+        font-size: 30;
+    }
+    .slides{
+        gap: 10px;
+        justify-content: center;
+            align-items: center;
+    }
+    .slide{
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .slide img {
+        max-width: 396px;
+        max-height: 254px;
+    }
+    .categories{
+        padding: 0 10px;
+    }
+    .categories-container{
+        flex-direction: column;
+    }
+    .sports-post{
+        flex-direction: column;
+    }
+    .sports-post img {
+        max-width: 396px;
+        height: 254px;
+        border-radius: 3px;
+    }
+    .category-image img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+    }
+    .sports h2 {
+        font-size: 20px;
+    }
+    .business h2 {
+        font-size: 20px;
+    }
+    .subscribe {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 0 10px;
+        background-color: #fafafa;
+    }
+    .subscription-container{
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 40px;
+    }
+    .input-container{
+        flex-direction: column;
+        gap: 20px;
+        height: 100px;
+    }
+    .subscription-container label {
+        font-weight: 600;
+        font-size: 26px;
+    }
+    .sub-input {
+        height: 48px;
+    }
+    .btn-sub{
+        font-size: 24px;
+        text-align: center;
+        height: 40px;
+        padding: 0;
+    }
+    
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     /* styles for tablets*/

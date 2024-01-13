@@ -5,6 +5,7 @@ const closeMenu = document.querySelector('.ri-close-line');
 const menuIsOpen = document.querySelector('.menu');
 
 
+
 openMenu.addEventListener('click', () => {
     openMenu.style.display="none"
     closeMenu.style.display="inline-block"
@@ -17,9 +18,13 @@ closeMenu.addEventListener('click', () => {
     menuIsOpen.classList.remove('active');
 })
 
-const postsContainer = document.querySelector('.posts-container');
 
-function slidePosts() {
+
+let trendIndex = 0;
+const postsContainer = document.querySelector('.posts-container');
+const navDots = document.querySelectorAll('.nav-dot');
+
+function slidePosts(index) {
 
     // clone the first post and append it to the end
     const firstPost = postsContainer.firstElementChild.cloneNode(true);
@@ -32,6 +37,14 @@ function slidePosts() {
     const posts = postsContainer.querySelectorAll('.post');
     const postsWidth = posts[0].offsetWidth;
     postsContainer.style.transform = `translateX(-${postsWidth}px)`;
+
+    if (index >= posts.length) {
+        trendIndex = 0;
+    } else if (index < 0) {
+        trendIndex = posts.length - 1;
+    }
+    navDots.forEach(navDot => navDot.classList.remove('active'));
+    navDots[slideIndex].classList.add('active');
 
     // remove first post after animation ends
     setTimeout(() => {
@@ -68,11 +81,18 @@ function showSlides(index) {
 
     dots.forEach(dot => dot.classList.remove('active'));
     dots[slideIndex].classList.add('active');
+    //calculate the distance the posts should slide
+    //const posts = postsContainer.querySelectorAll('.post');
+    //const postsWidth = posts[0].offsetWidth;
+    //postsContainer.style.transform = `translateX(-${postsWidth}px)`;
 
-    const slideWidth = slides[0].clientWidth;
-    const slideOffset = -slideWidth * slideIndex;
-    document.querySelector('.slides').style.transform = `translateX(${slideOffset}px)`;
+    const slideWidth = slides[0].offsetWidth;
+    //const slideOffset = -slideWidth * slideIndex;
+    slidesContainer.style.transform = `translateX(-${slideWidth}px)`;
+    //document.querySelector('.slides').style.transform = `translateX(${slideOffset}px)`;
 }
+
+
 
 function slideNext() {
     showSlides(slideIndex += 1);
