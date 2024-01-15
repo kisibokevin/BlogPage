@@ -78,6 +78,7 @@ function showSlides(index) {
     slidesContainer.appendChild(firstSlide);
     //.forEach(slide => slide.style.display = 'none');
     //slides[slideIndex].style.display = 'block';
+    slidesContainer.style.transition = "transform 0.8s ease-in-out";
 
     dots.forEach(dot => dot.classList.remove('active'));
     dots[slideIndex].classList.add('active');
@@ -90,21 +91,28 @@ function showSlides(index) {
     //const slideOffset = -slideWidth * slideIndex;
     slidesContainer.style.transform = `translateX(-${slideWidth}px)`;
     //document.querySelector('.slides').style.transform = `translateX(${slideOffset}px)`;
+
+    setTimeout(() => {
+        slidesContainer.style.transition = "none";
+        slidesContainer.style.transform = `translateX(0)`;
+        slidesContainer.removeChild(slidesContainer.firstElementChild);
+    }, 1000);
+
 }
 
-
+setInterval(showSlides, 3000);
 
 function slideNext() {
     showSlides(slideIndex += 1);
 }
 
+
+
 function slidePrevious() {
     showSlides(slideIndex -= 1);
 }
 
-function startSlide() {
-    slideInterval = setInterval(slideNext, 3000); // Change the interval time here (in milliseconds)
-}
+
 
 function stopSlide() {
     clearInterval(slideInterval);
@@ -134,4 +142,3 @@ nextButton.addEventListener('click', () => {
     slideNext();
     startSlide();
 });
-

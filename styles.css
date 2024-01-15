@@ -145,6 +145,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content:space-between;
+    gap: 20px;
 }
 .post-content {
     display: flex;
@@ -276,7 +277,8 @@ body {
     /* Set the height of each slide */
     /* Additional styling for individual slide */
     margin-left: 100px;
-    
+    justify-content: center;
+    align-items: center;
 }
 .slideText-content{
     display: flex;
@@ -347,7 +349,6 @@ body {
 .categories-container{
     display: flex;
     gap: 20px;
-    align-items: center;
     justify-content: center;
     margin-bottom: 50px;
 
@@ -634,6 +635,69 @@ body {
         padding: 0;
     }
     
+}
+
+@media screen and (min-width: 421px) and (max-width: 768px) {
+    /* styles for tablets*/
+    .wrapper{
+
+    }
+    .header {
+        padding: 0 30px;
+    }
+    .searchBar, .logo, .social-mobile{
+        flex: 1;
+    }
+    .trending{
+        padding: 0 30px;
+    }
+    .trending-title h1{
+        font-size: 32px;
+    }
+    .post {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+    .trending-post-image {
+        max-width: 696px;
+        max-height: 609px;
+    }
+    .nav-dots{
+        margin-bottom: 50px;
+    }
+    .postsCollection{
+        padding: 0 30px;
+    }
+    .singlePost{
+        max-width: 696px;
+
+    }
+    .single-post-image img {
+        max-width: 696px;
+        max-height: 447px;
+    }
+    
+    .slide{
+        width: 468px;
+        margin-left: 0;
+    }
+    .pagination-container{
+        padding: 0 30px;
+    }
+    .categories{
+        padding: 0 30px;
+    }
+    .categories-container{
+        flex-direction: column;
+    }
+    .subscribe{
+        padding: 0 30px;
+    }
+    .subscription-container{
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     /* styles for tablets*/
