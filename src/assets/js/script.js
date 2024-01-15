@@ -59,86 +59,72 @@ function slidePosts(index) {
     // you may adjust the time interval as needed
 
 
-let slideIndex = 0;
-const slidesContainer = document.querySelector('.slides')
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
-let slideInterval;
+    function slidePopularPosts(index) {
+        const slidesContainer = document.querySelector('.slides');
+        const slides = document.querySelectorAll('.slide');
+        //const dotsContainer = document.querySelector('.dots-container');
+        let popularIndex = 0;
 
-function showSlides(index) {
-    if (index >= slides.length) {
-        slideIndex = 0;
-    } else if (index < 0) {
-        slideIndex = slides.length - 1;
-    }
+        // Clone the first slide and append it to the end
+        const firstSlide = slidesContainer.firstElementChild.cloneNode(true);
+        slidesContainer.appendChild(firstSlide);
 
-    const firstSlide = slidesContainer.firstElementChild.cloneNode(true);
-    slidesContainer.appendChild(firstSlide);
-    //.forEach(slide => slide.style.display = 'none');
-    //slides[slideIndex].style.display = 'block';
-    slidesContainer.style.transition = "transform 0.8s ease-in-out";
+        //const firstSlide = slides[0].cloneNode(true);
+        //slidesContainer.appendChild(firstSlide);
 
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[slideIndex].classList.add('active');
-    //calculate the distance the posts should slide
-    //const posts = postsContainer.querySelectorAll('.post');
-    //const postsWidth = posts[0].offsetWidth;
-    //postsContainer.style.transform = `translateX(-${postsWidth}px)`;
+        // Animate the sliding effect
+        slidesContainer.style.transition = "transform 0.5s ease-in-out";
+        slidesContainer.style.overflow = "hidden"; // Ensure overflow is hidden to clip the blur effect
 
-    const slideWidth = slides[0].offsetWidth;
-    //const slideOffset = -slideWidth * slideIndex;
-    slidesContainer.style.transform = `translateX(-${slideWidth}px)`;
-    //document.querySelector('.slides').style.transform = `translateX(${slideOffset}px)`;
+        // Calculate the distance the slides should slide (half the width of the slide)
+        const slideWidth = slides[0].offsetWidth / 2;
+        slidesContainer.style.transform = `translateX(-${slideWidth}px)`;
 
-    setTimeout(() => {
-        slidesContainer.style.transition = "none";
-        slidesContainer.style.transform = `translateX(0)`;
-        slidesContainer.removeChild(slidesContainer.firstElementChild);
-    }, 1000);
+        // Add a blur effect to the previous and next slides
+        slides.forEach((slide, index) => {
+            const distanceFromCenter = Math.abs(index - slides.length / 2 + 0.5);
+            const blurAmount = distanceFromCenter * 2; // Adjust the multiplier for stronger/weaker blur
+            slide.style.filter = `blur(${blurAmount}px)`;
+        });
 
+        // Remove the first slide after the animation ends
+        setTimeout(() => {
+            slidesContainer.style.transition = "none";
+            slidesContainer.style.transform = `translateX(0)`;
+            slidesContainer.style.overflow = "visible"; // Reset overflow to visible after animation
+            slidesContainer.removeChild(slidesContainer.firstElementChild);
+            slides.forEach((slide) => {
+                slide.style.filter = "none"; // Remove blur effect from other slides
+            });
+        }, 1000);
+
+        // Update the active dot
+        const dots = document.querySelectorAll('.dot');
+        //const activeDot = dotsContainer.querySelector('.active');
+        //const nextDot = activeDot.nextElementSibling;
+
+        
+        if (index >= slides.length) {
+            popularIndex = 0;
+        } else if (index < 0) {
+            popularIndex = slides.length - 1;
+        }
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[slideIndex].classList.add('active');
+
+
+
+
+
+
+    // if (nextDot) {
+        //    activeDot.classList.remove('active');
+        //    nextDot.classList.add('active');
+    // } else {
+        //   dots[0].classList.add('active');
+        //    dots[dots.length - 1].classList.remove('active');
+    // }
 }
 
-setInterval(showSlides, 3000);
-
-function slideNext() {
-    showSlides(slideIndex += 1);
-}
-
-
-
-function slidePrevious() {
-    showSlides(slideIndex -= 1);
-}
-
-
-
-function stopSlide() {
-    clearInterval(slideInterval);
-}
-
-showSlides(slideIndex);
-startSlide();
-
-// Functionality for clicking pagination dots
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        stopSlide();
-        showSlides(slideIndex = index);
-        startSlide();
-    });
-});
-
-// Functionality for previous and next buttons
-prevButton.addEventListener('click', () => {
-    stopSlide();
-    slidePrevious();
-    startSlide();
-});
-
-nextButton.addEventListener('click', () => {
-    stopSlide();
-    slideNext();
-    startSlide();
-});
+// Call the slidePosts function every 3 seconds
+setInterval(slidePopularPosts, 3000);
