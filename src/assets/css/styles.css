@@ -248,13 +248,8 @@ body {
 }
 .slideshow-container {
     width: 100%;
-    height: auto;
-    position: relative;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+    position: relative;
 }
 .slideTitle{
     text-align: center;
@@ -264,21 +259,14 @@ body {
 
 .slides {
     display: flex;
-    gap: 100px;
-    justify-content: center;
     transition: transform 0.5s ease;
 }
 
 .slide {
-    flex: 0 0 auto;
-    width: 550px;
-    /* Set the width of each slide */
-    height: auto;
-    /* Set the height of each slide */
-    /* Additional styling for individual slide */
-    margin-left: 100px;
-    justify-content: center;
-    align-items: center;
+    flex: 0 0 33.33%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 10px;
 }
 .slideText-content{
     display: flex;
@@ -287,8 +275,8 @@ body {
     margin-top: 10px;
 }
 .slide img {
-    max-width: 800px;
-    max-height: 350px;
+    max-width: 100%;
+    height: auto;
     border-radius: 5px;
 }
 .slide-post-title {
@@ -343,7 +331,15 @@ body {
     background-color: #e65100;
 }
 .pag{
+    background-color: #363636;
+    color: #fff;
+    padding:4px 8px;
+    border-radius: 5px;
     cursor: pointer;
+}
+.pag:hover{
+    background-color: #e65100;
+
 }
 
 .categories-container{
@@ -563,6 +559,9 @@ body {
         max-width: 396px;
         max-height: 254px;
     }
+    .popularContainer{
+        padding: 0 10px;
+    }
     .slideTitle{
         font-size: 30;
     }
@@ -572,12 +571,12 @@ body {
             align-items: center;
     }
     .slide{
-        max-width: 400px;
-        margin: 0 auto;
+            flex: 0 0 100%;
     }
     .slide img {
-        max-width: 396px;
-        max-height: 254px;
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
     }
     .categories{
         padding: 0 10px;
