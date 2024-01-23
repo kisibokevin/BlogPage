@@ -1,3 +1,8 @@
+
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     text-decoration: none;
     box-sizing: border-box;
@@ -271,6 +276,7 @@ body {
 .slideText-content{
     display: flex;
     flex-direction: column;
+    text-align: left;
     gap: 10px;
     margin-top: 10px;
 }
@@ -676,11 +682,18 @@ body {
         max-width: 696px;
         max-height: 447px;
     }
-    
-    .slide{
-        width: 468px;
-        margin-left: 0;
+    .popularContainer{
+        padding: 0 30px;
     }
+        .slide {
+            flex: 0 0 100%;
+        }
+    
+        .slide img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
     .pagination-container{
         padding: 0 30px;
     }
@@ -700,6 +713,9 @@ body {
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     /* styles for tablets*/
+    .wrapper{
+        padding: 0 50px;
+    }
 }
 @media screen and (min-width: 1024px) {
     /* styles for pcs*/
