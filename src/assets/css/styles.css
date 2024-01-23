@@ -137,8 +137,6 @@ body {
 }
 .trending-post-image{
     flex: 1;
-    max-width: 100%;
-    height: auto;
 }
 .trending-post-image img {
     width: 100%;
@@ -175,6 +173,10 @@ body {
 .post-author{
     display: flex;
     gap: 10px;
+}
+.author-name {
+    display: flex;
+    flex-direction: column;
 }
 .nav-dots{
     display: flex;
