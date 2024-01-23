@@ -18,7 +18,7 @@ body {
     margin: 0;
 }
 .wrapper {
-    max-width: 1200px;
+    max-width: 1024px;
     margin: 0 auto;
 }
 .menu{
@@ -137,8 +137,8 @@ body {
 }
 .trending-post-image{
     flex: 1;
-    max-width: 440px;
-    max-height: 385px;
+    max-width: 100%;
+    height: auto;
 }
 .trending-post-image img {
     width: 100%;
@@ -711,10 +711,10 @@ body {
         margin-right: 0;
     }
 }
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     /* styles for tablets*/
     .wrapper{
-        padding: 0 50px;
+        padding: 0 20px;
     }
 }
 @media screen and (min-width: 1024px) {
